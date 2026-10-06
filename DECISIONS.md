@@ -1,6 +1,5 @@
 # Registro de decisiones
 
-Fecha: 06/10/2026. Estado general: diseño propuesto para primera entrega.
 
 | ID | Decisión | Motivo y alternativa |
 |---|---|---|
