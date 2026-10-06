@@ -1,7 +1,6 @@
 # Cloud Provider Analytics
 
 **Minería de Datos II · ISTEA · 2C 2026**  
-**Autor de esta propuesta individual:** Ramón Ojea  
 **Profesor:** Diego Mosquera · **Primera entrega:** 07/10/2026, 19:00 h
 
 El objetivo es convertir datos de uso, facturación y soporte de un proveedor de nube en información que sirva para controlar costos, priorizar tickets y entender el uso de los servicios.
@@ -10,11 +9,10 @@ Esta versión cubre **diseño y fundación de datos**. Incluye exploración ejec
 
 ## Por dónde empezar
 
-- [Documento principal de diseño](docs/diseno_entrega1.md): cubre los 12 puntos de la consigna.
-- [Evidencia de exploración](evidence/perfil_datos.md): resultados medidos sobre el dataset original.
-- [Notebook ejecutado](notebooks/01_exploracion_y_mapreduce.ipynb): lectura, calidad, simulación temporal y MapReduce.
-- [Decisiones](DECISIONS.md), [matriz de requisitos](docs/matriz_requisitos.md) y [guía de defensa](docs/guia_defensa.md).
-- [Comparación de enfoques y referencias](docs/referencias_y_comparacion.md): aportes discutidos con los compañeros y ajustes de esta propuesta.
+- [Documento principal de diseño](docs/diseno_entrega1.md)
+- [Evidencia de exploración](evidence/perfil_datos.md)
+- [Notebook](notebooks/01_exploracion_y_mapreduce.ipynb)
+- [Decisiones](DECISIONS.md), [matriz de requisitos](docs/matriz_requisitos.md)
 
 ## Findings
 
@@ -31,7 +29,7 @@ Desde la raíz del repositorio:
 python src/exploracion.py
 ```
 
-Salida esperada: 43.200 eventos, 120 archivos, 60 fechas, 10.800 eventos v1 y 32.400 v2. La agregación de referencia devuelve 11.050 claves y 147433.9778 USD. El script regenera los CSV, el resumen y los hashes en `evidence/`; los originales de `data/datalake/landing/` permanecen intactos.
+Salida: 43.200 eventos, 120 archivos, 60 fechas, 10.800 eventos v1 y 32.400 v2. La agregación de referencia devuelve 11.050 claves y 147433.9778 USD. El script regenera los CSV, el resumen y los hashes en `evidence/`; los originales de `data/datalake/landing/` permanecen intactos.
 
 Para usar otra carpeta o escribir las evidencias en otro destino:
 
@@ -48,6 +46,6 @@ python src/exploracion.py --landing /ruta/datalake/landing --output /ruta/eviden
 | `src/exploracion.py` | Perfilado y MapReduce de referencia en Python |
 | `notebooks/` | Recorrido ejecutado de la exploración |
 | `evidence/` | CSV medidos, resumen JSON, hashes y validación |
-| `data/datalake/landing/` | Copia fiel del dataset sintético del profesor |
+| `data/datalake/landing/` | Copia fiel del dataset sintético |
 
 Nombres `snake_case`, fechas UTC, claves naturales documentadas y montos monetarios con precisión decimal. Landing es inmutable. Las reglas dudosas se registran con un flag; no se eliminan registros para mejorar un indicador.
