@@ -1,13 +1,10 @@
 # Cloud Provider Analytics · Diseño de la primera entrega
 
-**Ramón Ojea · Minería de Datos II · ISTEA · 2C 2026**  
-Fecha de elaboración: 06/10/2026. Propuesta individual para comparar y consolidar dentro del grupo.
-
 ## 1. Problema, usuarios y objetivos
 
 El proveedor tiene información repartida entre eventos de consumo, maestros de clientes y recursos, facturación, tickets y encuestas. Una suma directa sobre los archivos puede producir cifras engañosas: hay números como texto, datos ausentes, costos negativos y monedas que necesitan una interpretación explícita.
 
-Propongo un pipeline que conserve los originales, haga visibles los problemas de calidad y publique resultados por organización. La prioridad es que cada indicador se pueda explicar y reproducir.
+Propongo un pipeline que conserve los originales y haga visibles los problemas de calidad y publique resultados por organización. La prioridad es que cada indicador se pueda explicar y reproducir.
 
 | Usuario | Pregunta | Resultado y decisión |
 |---|---|---|
