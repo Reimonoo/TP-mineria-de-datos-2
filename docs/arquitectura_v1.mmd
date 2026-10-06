@@ -1,0 +1,21 @@
+flowchart TD
+    subgraph fuentes["Landing inmutable"]
+        CSV["7 CSV"]
+        JSON["120 JSONL"]
+    end
+    CSV --> BATCH["PySpark batch"]
+    JSON --> RAW["Structured Streaming: captura sin descarte"]
+    BATCH --> BR["Bronze: Parquet y metadatos"]
+    RAW --> BR
+    BR --> HIST["Backfill histórico y late data"]
+    BR --> LIVE["Ruta operativa: watermark y dedupe"]
+    HIST --> SV["Silver: calidad y claves únicas"]
+    LIVE --> SV
+    SV --> GD["Gold: marts por dominio"]
+    GD --> CAS["Cassandra / AstraDB"]
+    CAS --> CONS["Consultas FinOps, Soporte y Producto"]
+    HIST --> Q["Quarantine: inválidos con motivo"]
+    LIVE --> Q
+    GOV["Gobierno: calidad, linaje, seguridad y observabilidad"] -.-> BR
+    GOV -.-> SV
+    GOV -.-> GD

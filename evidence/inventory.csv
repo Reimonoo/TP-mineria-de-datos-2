@@ -1,0 +1,9 @@
+source,rows,columns,key,mode
+customers_orgs,80,11,org_id,batch
+users,800,7,user_id,batch
+resources,400,7,resource_id,batch
+support_tickets,1000,8,ticket_id,batch
+marketing_touches,1500,7,touch_id,batch
+nps_surveys,92,4,org_id+survey_date,batch
+billing_monthly,240,8,invoice_id,batch
+usage_events,43200,13,event_id,streaming_simulado

@@ -1,0 +1,2 @@
+# Opcional para abrir y ejecutar el notebook localmente.
+jupyterlab==4.4.6

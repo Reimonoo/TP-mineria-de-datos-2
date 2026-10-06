@@ -1,0 +1,8 @@
+{
+  "python": "3.12.14",
+  "source_files_byte_identical": 128,
+  "reproducible_outputs": 7,
+  "local_markdown_links": "ok",
+  "executed_notebook_cells": 5,
+  "limitations": "No se ejecutó Spark ni Cassandra; se validó exploración de primera entrega."
+}
