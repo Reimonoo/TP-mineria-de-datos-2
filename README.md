@@ -16,16 +16,15 @@ Esta versión cubre **diseño y fundación de datos**. Incluye exploración ejec
 - [Decisiones](DECISIONS.md), [matriz de requisitos](docs/matriz_requisitos.md) y [guía de defensa](docs/guia_defensa.md).
 - [Comparación de enfoques y referencias](docs/referencias_y_comparacion.md): aportes discutidos con los compañeros y ajustes de esta propuesta.
 
-## Qué encontré en los datos
+## Findings
 
 Los 120 archivos de eventos mezclan 59 o 60 fechas cada uno. Por eso propongo conservar primero todos los eventos y separar el histórico del procesamiento operativo con estado. Un watermark corto aplicado directamente al histórico dejaría gran parte de los datos fuera de su horizonte temporal.
 
 También aparecen 1.309 valores numéricos como texto, 877 valores nulos, 216 costos negativos y 160 facturas USD con un tipo de cambio distinto de uno. Son problemas distintos: algunos se pueden corregir de forma controlada y otros necesitan una definición de negocio.
 
-## Reproducir la evidencia
+## Evidencia
 
-Requisito mínimo: **Python 3.10 o superior**. Validado con Python 3.12.14 en Linux. La exploración usa únicamente la biblioteca estándar; no necesita Java, Spark, credenciales ni conexión externa.
-
+Requisito mínimo: **Python 3.10 o superior**. Validado con Python 3.12.14 en Linux.
 Desde la raíz del repositorio:
 
 ```bash
@@ -40,7 +39,6 @@ Para usar otra carpeta o escribir las evidencias en otro destino:
 python src/exploracion.py --landing /ruta/datalake/landing --output /ruta/evidencias
 ```
 
-El notebook puede abrirse en Jupyter o Colab. En Colab hay que disponer de la carpeta completa del repositorio y ejecutar desde esa raíz; el notebook busca `src/exploracion.py` en el directorio actual o en el padre. Dependencia opcional local: `pip install -r requirements-notebooks.txt`.
 
 ## Estructura y convenciones
 
@@ -53,13 +51,3 @@ El notebook puede abrirse en Jupyter o Colab. En Colab hay que disponer de la ca
 | `data/datalake/landing/` | Copia fiel del dataset sintético del profesor |
 
 Nombres `snake_case`, fechas UTC, claves naturales documentadas y montos monetarios con precisión decimal. Landing es inmutable. Las reglas dudosas se registran con un flag; no se eliminan registros para mejorar un indicador.
-
-## Próximas entregas y límites
-
-Para el 18/11 se implementarán batch de tres maestros, streaming con checkpoint/watermark/dedupe/late data, Silver, tres features, tres reglas de calidad, un mart Gold y dos consultas reales en Cassandra. Para el 09/12 se integrarán los cinco dominios/consultas requeridos y el material de presentación.
-
-El CSV `usage_daily_reference.csv` es evidencia de cálculo sobre Landing, **no una capa Gold productiva**. La simulación del watermark no mide descartes reales de Spark. Los objetivos de latencia son metas propuestas, no benchmarks. La idempotencia distribuida y el serving todavía deben implementarse y demostrarse.
-
-## Datos y referencias
-
-Los datos incluidos son sintéticos y provienen de `cloud_provider_challenge_dataset_v1.zip`. La consigna oficial es `Consigna_Proyecto_Integrador_Mineria_de_Datos_II_ISTEA_2C_2026.pdf`, especialmente §§5 y 9.1. Se revisaron las propuestas de Sebastián, María y David; se documentan los aportes y las diferencias en [referencias](docs/referencias_y_comparacion.md).
